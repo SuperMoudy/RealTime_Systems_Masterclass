@@ -77,9 +77,7 @@
 // Constant for Toggling state
 #define NO_TOGGLE 0
 
-// Global Variables
-TaskHandle_t LED_handle = NULL, Button_handle = NULL;
-
+// Type definitions
 typedef struct
 {
 	pinX_t pin_num;
@@ -87,9 +85,8 @@ typedef struct
 	int toggle_rate;
 } LED_data_st;
 
-//LED_data LED1_data = {PIN1, 100};
-//LED_data LED2_data = {PIN2, 500};
-//LED_data LED3_data = {PIN3, 1000};
+// Global Variables
+TaskHandle_t LED_handle = NULL, Button_handle = NULL;
 
 
 /*
@@ -197,6 +194,7 @@ void LED_task_code(void *data)
 
 void Button_task_code(void *data)
 {
+	// Initial State
 	unsigned long duration = 0;
 	pinState_t pin0_prev_state = GPIO_read(PORT_0, PIN0);
 	pinState_t pin0_curr_state = pin0_prev_state;
@@ -252,6 +250,5 @@ void Button_task_code(void *data)
 		// Check every 10 ms
 		vTaskDelay(10);
 	}
-	
 }
 

@@ -74,20 +74,16 @@
 /* Constants for the ComTest demo application tasks. */
 #define mainCOM_TEST_BAUD_RATE	( ( unsigned long ) 115200 )
 
-
-// Global Variables
-TaskHandle_t LED_handle1 = NULL, LED_handle2 = NULL, LED_handle3 = NULL;
-
+// Type definitions
 typedef struct
 {
 	pinX_t pin_num;
-	int LED_period;
-} LED_data;
+	int toggle_rate;
+} LED_data_st;
 
-LED_data LED1_data = {PIN1, 100};
-LED_data LED2_data = {PIN2, 500};
-LED_data LED3_data = {PIN3, 1000};
 
+// Global Variables
+TaskHandle_t LED_handle1 = NULL, LED_handle2 = NULL, LED_handle3 = NULL;
 
 /*
  * Configure the processor for use with the Keil demo board.  This is very
@@ -108,6 +104,11 @@ void LED_task_code(void*);
  */
 int main( void )
 {
+	// Local Variables
+	LED_data_st LED1_data = {PIN1, 100};
+	LED_data_st LED2_data = {PIN2, 500};
+	LED_data_st LED3_data = {PIN3, 1000};
+
 	/* Setup the hardware for use with the Keil demo board. */
 	prvSetupHardware();
 
@@ -175,16 +176,16 @@ void LED_task_code(void* data)
 	while(1)
 	{
 		// Access Pin number and make it high
-		GPIO_write(PORT_0, ((LED_data *)data)->pin_num, PIN_IS_HIGH);
+		GPIO_write(PORT_0, ((LED_data_st *)data)->pin_num, PIN_IS_HIGH);
 		
 		// Access delay period
-		vTaskDelay(((LED_data *)data)->LED_period);
+		vTaskDelay(((LED_data_st *)data)->toggle_rate);
 		
 		// Access Pin number and make it low
-		GPIO_write(PORT_0, ((LED_data *)data)->pin_num, PIN_IS_LOW);
+		GPIO_write(PORT_0, ((LED_data_st *)data)->pin_num, PIN_IS_LOW);
 		
 		// Access delay period
-		vTaskDelay(((LED_data *)data)->LED_period);
+		vTaskDelay(((LED_data_st *)data)->toggle_rate);
 	}
 }
 
