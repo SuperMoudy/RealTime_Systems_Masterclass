@@ -2,7 +2,7 @@
 
 ## Assignments Progress
 
-- [ ] Assignment_01: Introduction to FreeRTOS
+- [x] Assignment_01: [Introduction to FreeRTOS](https://youtu.be/m3SOcCRQ460)
 
 - [ ] Assignment_02: Inter-Process communication
 
