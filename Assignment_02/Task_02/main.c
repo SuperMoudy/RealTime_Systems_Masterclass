@@ -59,7 +59,6 @@
 
 /* Scheduler includes. */
 #include "FreeRTOS.h"
-#include "semphr.h"
 #include "task.h"
 #include "lpc21xx.h"
 
@@ -68,7 +67,7 @@
 #include "GPIO.h"
 
 // More Application includes
-
+#include "semphr.h"
 
 
 /*-----------------------------------------------------------*/
@@ -84,16 +83,6 @@
 
 // Constant to indicate mutex polling
 #define NO_TIMEOUT ((TickType_t) 0)
-
-// Type definitions
-/*
-typedef struct
-{
-	pinX_t pin_num;
-	pinState_t pin_state;
-	int toggle_rate;
-} LED_data_st;
-*/
 
 // Global Variables
 TaskHandle_t task1_handle = NULL, task2_handle = NULL;
@@ -125,7 +114,7 @@ int main( void )
 	// Create Mutex
 	mutex = xSemaphoreCreateMutex();
 	
-  /* Create Tasks here */
+  	/* Create Tasks here */
 	// Task 1
 	xTaskCreate(task1_code, // Function that implements the task.
               "Task1 with period 100", // Text name for the task.
