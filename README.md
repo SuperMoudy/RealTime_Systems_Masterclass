@@ -4,7 +4,7 @@
 
 - [x] Assignment_01: [Introduction to FreeRTOS](https://youtu.be/YWIPaMj4Bj4)
 
-- [ ] Assignment_02: Inter-Process communication
+- [x] Assignment_02: [Inter-Process communication](https://youtu.be/j1pzSMiusb0)
 
 - [ ] Assignment_03: Designing a real-time system
 
