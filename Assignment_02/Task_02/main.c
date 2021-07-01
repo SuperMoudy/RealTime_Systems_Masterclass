@@ -174,9 +174,6 @@ void task1_code(void *task_parameters)
 	// Message ID (variable in message body from 0 to 9)
 	uint8_t message_ID = 0;
 	
-	// Loop index to simulate heavy load
-	volatile uint32_t heavy_load_index;
-	
 	while(1)
 	{
 		// Take Mutex to access the shared resource (UART1)

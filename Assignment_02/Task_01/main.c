@@ -183,7 +183,7 @@ void Button_task_code(void *state)
 		if(Button_curr_state != Button_prev_state)
 		{
 			// Check valid state transition from high to low
-			if(Button_curr_state == PIN_IS_LOW && Button_prev_state == PIN_IS_HIGH)
+			if(Button_curr_state == PIN_IS_LOW) // prev = HIGH
 			{
 				(*(pinState_t *)state) ^= 1;
 			}
