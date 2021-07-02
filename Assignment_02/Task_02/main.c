@@ -173,6 +173,9 @@ void task1_code(void *task_parameters)
 	
 	// Message ID (variable in message body from 0 to 9)
 	uint8_t message_ID = 0;
+
+	// Loop index to make a delay loop until UART is ready to send again
+	volatile uint32_t delay_loop_index;
 	
 	while(1)
 	{
@@ -187,9 +190,9 @@ void task1_code(void *task_parameters)
 			
 				// Send Message
 				vSerialPutString((const signed char *)message, message_len);
-			
-				// Send every 100 ms
-				vTaskDelay(100);
+
+				// Delay loop
+				for(delay_loop_index = 0; delay_loop_index < 10000; delay_loop_index++);
 				
 			} // for
 			
@@ -199,8 +202,8 @@ void task1_code(void *task_parameters)
 			
 		} // if
 		
-		// Block task
-		vTaskDelay(1);
+		// Periodicity = 100 ms
+		vTaskDelay(100);
 		
 	} // while
 }
@@ -216,6 +219,9 @@ void task2_code(void *task_parameters)
 	
 	// Message ID (variable in message body from 0 to 9)
 	uint8_t message_ID = 0;
+
+	// Loop index to make a delay loop until UART is ready to send again
+	volatile uint32_t delay_loop_index;
 	
 	// Loop index to simulate heavy load
 	volatile uint32_t heavy_load_index;
@@ -233,12 +239,13 @@ void task2_code(void *task_parameters)
 			
 				// Send Message
 				vSerialPutString((const signed char *)message, message_len);
+
+				// Delay loop
+				for(delay_loop_index = 0; delay_loop_index < 10000; delay_loop_index++);
 			
 				// Heavy Load loop
 				for(heavy_load_index = 0; heavy_load_index < 100000; heavy_load_index++);
-			
-				// Send every 500 ms
-				vTaskDelay(500);
+				
 				
 			} // for
 			
@@ -248,8 +255,8 @@ void task2_code(void *task_parameters)
 			
 		} // if
 		
-		// Block task
-		vTaskDelay(1);
+		// Periodicity = 500 ms
+		vTaskDelay(500);
 		
 	} // while
 }
