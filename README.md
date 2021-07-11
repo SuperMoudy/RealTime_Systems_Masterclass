@@ -8,6 +8,6 @@
 
 - [x] Assignment_03: [Designing a real-time system](https://youtu.be/yhMOwm8J5zk)
 
-- [ ] Assignment_04: Scheduling and Types of schedulers
+- [x] Assignment_04: [Scheduling and Types of schedulers](https://youtu.be/wV9ZsEIN9As)
 
 - [ ] Assignment_05: Graduation Project
