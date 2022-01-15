@@ -1,5 +1,7 @@
 # Real-time Systems MasterClass
 
+[![image](images/Real_Time_Systems.png)](https://programs.sprints.ai/courses)
+
 ## Assignments Progress
 
 - [x] Assignment_01: [Introduction to FreeRTOS](https://youtu.be/YWIPaMj4Bj4)
