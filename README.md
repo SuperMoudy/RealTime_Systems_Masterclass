@@ -12,4 +12,4 @@
 
 - [x] Assignment_04: [Scheduling and Types of schedulers](https://youtu.be/wV9ZsEIN9As)
 
-- [ ] Assignment_05: Graduation Project
+- [x] Assignment_05: [Graduation Project](https://youtu.be/GxDrmm0VH2M)
